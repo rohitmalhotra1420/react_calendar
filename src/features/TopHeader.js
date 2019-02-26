@@ -13,7 +13,7 @@ const TopHeader = ({ presentDayHoliday }) => {
         <h1 className="holiday-header">Hey, you got Holiday today.</h1>
         <div>
           <h1 className="full-date">
-            {`${presentDayHoliday.date.datetime.day}th ${getMonthName(
+            {`${presentDayHoliday.date.datetime.day} ${getMonthName(
               presentDayHoliday.date.datetime.month
             )} ${presentDayHoliday.date.datetime.year}`}
           </h1>

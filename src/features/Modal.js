@@ -10,7 +10,7 @@ const Modal = ({ hideModal, show, holidayData }) => {
         {holidayData && (
           <div>
             <h1 className="full-date">
-              {`${holidayData.date.datetime.day}th ${getMonthName(
+              {`${holidayData.date.datetime.day} ${getMonthName(
                 holidayData.date.datetime.month
               )} ${holidayData.date.datetime.year}`}
             </h1>
