@@ -38,8 +38,8 @@ export const holidayDifferentiator = totalHolidays => {
     upcomingHolidays: [],
     presentDayHoliday: null
   };
-  const currentMonth = 3;
-  const currentDate = 1;
+  const currentMonth = getcurrentMonth();
+  const currentDate = getCurrentDate();
   totalHolidays.forEach(holiday => {
     const month = holiday.date.datetime.month;
     if (month < currentMonth) {
