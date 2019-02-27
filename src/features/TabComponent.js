@@ -30,7 +30,7 @@ class TabComponent extends Component {
                 >
                   <h1 className="date">
                     {holiday.date.datetime.day}
-                    <span className="th">th</span>
+
                   </h1>
                   <p className="month">
                     {getMonthName(holiday.date.datetime.month)}
