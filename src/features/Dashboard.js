@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getHolidayList } from "./api";
-import { holidayDifferentiator } from "../utils/utils";
+import { holidayDifferentiator, combineSameHolidays } from "../utils/utils";
 import TabView from "./TabView";
 import TopHeader from "./TopHeader";
 
@@ -8,7 +8,7 @@ class Dashboard extends Component {
   state = {
     passedHolidays: [],
     upcomingHolidays: [],
-    presentDayHoliday: null,
+    presentDayHoliday: [],
     error: false,
     loading: true
   };
@@ -26,11 +26,25 @@ class Dashboard extends Component {
             upcomingHolidays,
             presentDayHoliday
           } = holidayData;
-          console.log(passedHolidays, upcomingHolidays, presentDayHoliday);
+          // console.log(passedHolidays, upcomingHolidays, presentDayHoliday);
+          const combinedDuplicatePassedHolidays = combineSameHolidays(
+            passedHolidays
+          );
+          const combinedDuplicateUpcomingHolidays = combineSameHolidays(
+            upcomingHolidays
+          );
+          const combineDuplicatePresentDayHolidays = combineSameHolidays(
+            presentDayHoliday
+          );
+          console.log(
+            combinedDuplicatePassedHolidays,
+            combinedDuplicateUpcomingHolidays,
+            combineDuplicatePresentDayHolidays
+          );
           this.setState({
-            passedHolidays,
-            upcomingHolidays,
-            presentDayHoliday,
+            passedHolidays: combinedDuplicatePassedHolidays,
+            upcomingHolidays: combinedDuplicateUpcomingHolidays,
+            presentDayHoliday: combineDuplicatePresentDayHolidays,
             loading: false
           });
         } else {

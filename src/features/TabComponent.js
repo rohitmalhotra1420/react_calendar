@@ -28,12 +28,9 @@ class TabComponent extends Component {
                   key={index}
                   onClick={() => this.showModal(holiday)}
                 >
-                  <h1 className="date">
-                    {holiday.date.datetime.day}
-
-                  </h1>
+                  <h1 className="date">{new Date(holiday.date).getDate()}</h1>
                   <p className="month">
-                    {getMonthName(holiday.date.datetime.month)}
+                    {getMonthName(new Date(holiday.date).getMonth() + 1)}
                   </p>
                 </div>
               );
